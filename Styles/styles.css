@@ -16,7 +16,7 @@ header{
 }
 
 header p {
-    font-size: 2rem; 
+    font-size: 2.5rem; 
 }
 
 .score-container{
@@ -27,15 +27,32 @@ header p {
     font-size: 2rem;
 }
 
-.score-labels, .scores-container {
+.score-labels, .scores-container{
     display: flex; 
     justify-content: space-between;  
     height: 30%; 
 }
 
+.game-results {
+    display: flex; 
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.result{
+    display: flex; 
+    flex-direction: column;
+    width: 100%; 
+    font-size: 2rem;
+}
+
 .score{
     background-color: #0D0C1D; 
     padding: 30px; 
+    margin-right: 2%; 
+} 
+
+.result{
     margin-right: 2%; 
 } 
 
@@ -57,4 +74,9 @@ h2{
 
 .btn-container img{
     width: 60%; 
+}
+
+.btn-container img:hover{
+    width: 70%; 
+    cursor: pointer;
 }

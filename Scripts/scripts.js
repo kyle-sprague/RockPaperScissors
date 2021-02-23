@@ -19,9 +19,11 @@ let buttons = document.querySelectorAll(".button");
 //the body of the html file
 const body = document.querySelector("body"); 
 
-//Results will hold the div where I can display the resutls of 
+//Results and picks will hold the divs where I can display the resutls of 
 //each round 
 const results = document.querySelector(".results-container"); 
+const man_choice = document.querySelector("#manChoice"); 
+const machine_choice = document.querySelector("#machineChoice");
 
 //Function that randomly selects the cpu pick 
 function cpu_Pick(){
@@ -46,8 +48,56 @@ buttons.forEach((button) => {
 function playRound(cpu, player){ 
     if(player == 'paper' && cpu == 'rock'){
         player_Scores(); 
-        results.textContent = "Player Wins"
+        man_choice.textContent = "Man Picks Paper"; 
+        machine_choice.textContent = "Machine Picks Rock"; 
+        results.textContent = "Man Wins!"; 
     }
+    else if(player == 'paper' && cpu == 'scissors'){
+        cpu_Scores();
+        man_choice.textContent = "Man Picks Paper"; 
+        machine_choice.textContent = "Machine Picks Scissors"; 
+        results.textContent = "Machine Wins!"; 
+    }
+    else if(player == 'paper' && cpu == 'paper'){
+        man_choice.textContent = "Man Picks Paper"; 
+        machine_choice.textContent = "Machine Picks Paper";
+        results.textContent = "Tie!";  
+    }
+    else if(player == 'rock' && cpu == 'rock'){
+        man_choice.textContent = "Man Picks Rock"; 
+        machine_choice.textContent = "Machine Picks Rock";
+        results.textContent = "Tie!"; 
+    }
+    else if(player == 'rock' && cpu == 'scissors'){
+        man_choice.textContent = "Man Picks Rock"; 
+        machine_choice.textContent = "Machine Picks Scissors";
+        player_Scores(); 
+        results.textContent = "Man Wins!"; 
+    }
+    else if(player == 'rock' && cpu == 'paper'){
+        man_choice.textContent = "Man Picks Paper"; 
+        machine_choice.textContent = "Machine Picks Paper";
+        cpu_Scores(); 
+        results.textContent = "Machine Wins!"; 
+    }
+    else if(player == 'scissors' && cpu == 'rock'){
+        man_choice.textContent = "Man Picks Scissors"; 
+        machine_choice.textContent = "Machine Picks Rock";
+        cpu_Scores(); 
+        results.textContent = "Machine Wins!"; 
+    }
+    else if(player == 'scissors' && cpu == 'scissors'){
+        man_choice.textContent = "Man Picks Scissors"; 
+        machine_choice.textContent = "Machine Picks Scissors";
+        results.textContent = "Tie!"; 
+    }
+    else if(player == 'scissors' && cpu == 'paper'){
+        man_choice.textContent = "Man Picks Scissors"; 
+        machine_choice.textContent = "Machine Picks Paper";
+        player_Scores(); 
+        results.textContent = "Man Wins!"; 
+    }
+
 }
 
 //When the cpu scores this updates the cpus score
